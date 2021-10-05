@@ -1,0 +1,32 @@
+{% extends 'app1/base.html'%}
+{% block title%}profile{%endblock title%}
+
+{% block body%}
+<div class = "container">
+    <div class = "row">
+        <h3 class = "text-right mt-5">Welcome <small class = "h3 text-success">{{request.user}}</small></h3>
+        <div class = "col sm-2 border-end">
+            <ul class = "list-unstyled">
+                <li class = "list"><a class = "btn btn-primary" href = "/profile/">Profile</a></li>
+                <li class = "list"><a class = "btn" href = "/address/">Address</a></li>
+            </ul>
+        </div>
+        <div class = "col-sm-8 offset-sm-1">
+            <form action = "" method = "post">
+                {% csrf_token%}
+                {% for i in form %}
+                <div class = "form-group col-sm-6 my-2">
+                    {{i.label_tag}}{{i}}<small class = "text-danger">{{i.errors|striptags}}</small>
+                </div>
+                {% endfor%}
+                <input class = "btn btn-danger my-3" value = "Submit" type = "submit">
+                {% for i in messages%}
+                <p class = "alert alert-danger">{{i}}</p>
+                {% endfor%}
+            </form>
+        </div>
+            
+    </div>
+    
+</div>
+{% endblock%}

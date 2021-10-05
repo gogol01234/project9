@@ -1,0 +1,42 @@
+{% extends 'app1/base.html'%}
+{%block title%}Adress{%endblock title%}
+{%  block body%}
+<style>
+    .card{
+        border-width:thin;
+    }
+</style>
+<div class = "container">
+    <div class = "row">
+        <h2 class = "text-right mt-5">Welcome {{request.user}}</h2>
+        <div class = "col sm-2 border-end">
+            <ul class = "list-unstyled">
+                <li class = "list"><a class = "btn" href = "/profile/">Profile</a></li>
+                <li class = "list"><a class = "btn btn-primary" href = "/address/">Address</a></li>
+            </ul>
+        </div>
+        <div class = "col-sm-8 offset-sm-1">
+            <div class = "row">
+                {% for i in add%}
+                <div class = "col-sm-6 my-2">
+                    <div class = "card bg-warning border border-danger text-dark" style = "border-width:thick;">
+                        <div class = "card-body">
+                            <h1>Adress{{forloop.counter}}:</h1>
+                            <p>Name:{{i.name}}</p>
+                            <p>Locality:{{i.locality}}</p>
+                            <p>City:{{i.city}}</p>
+                            <p>State:{{i.state}}</p>
+                            <p>Zipcode:{{i.zipcode}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            
+            </div>
+        </div>
+            
+    </div>
+    
+</div>
+{% endblock body%}

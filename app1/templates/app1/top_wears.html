@@ -1,0 +1,29 @@
+{% extends "app1/base.html"%}
+{% block title %}Top Wears{% endblock title%}
+{% load static%}
+{% block body%}
+<div class = "container my-5">
+    <div class = "row">
+        <div class = "col-sm-3">
+            <div class = "list-group">
+                <a href = "/top_wears/" class= "list-group-item list-group-item-action bg-warning text-white">All Top Wears</a>
+                <a href = "/top_wears/Nike/" class= "list-group-item list-group-item-action bg-danger text-white">Nike</a>
+                <a href = "/top_wears/everlance/" class= "list-group-item list-group-item-action bg-warning text-white">Everlance</a>
+                <a href = "/top_wears/Gucci/" class= "list-group-item list-group-item-action bg-danger text-white">Gucci</a>
+                <a href = "/top_wears/below/" class= "list-group-item list-group-item-action bg-warning text-white">Below than Rs 1000</a>
+                <a href = "/top_wears/above/" class= "list-group-item list-group-item-action bg-danger text-white">Above than Rs 1000</a>
+            </div>
+        </div>
+        <div class = "col-sm-8 offset-sm-1 ">
+            {% for i in top_wears%}
+            <div style = "display:inline-block;" class = "mx-4 ">
+                <a href = "/product_detail/{{i.id}}" class = "btn"><img src = "{{i.product_image.url}}" class = "img-fluid">
+                <p class = "fw-bold">{{i.title}}</p>
+                <P class = "fw-bold">Deal of the Day:&#x20B9;{{i.discounted_price}}0</P>
+                </a>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+{% endblock %}

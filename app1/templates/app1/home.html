@@ -1,0 +1,124 @@
+{%extends 'app1/base.html'%}
+{% block title %}home{% endblock title%}
+{% load static %}
+{% block body%}
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app1/images/banner/b1.jpg' %}" class="d-block w-100" alt="..."> 
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app1/images/banner/b2.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app1/images/banner/b3.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img  id = "image4" src="{% static 'app1/images/banner/b4.jpg' %}" class="d-block w-100" alt="...">
+      </div>-100 img-fluid
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+<div class="container">
+  <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div>
+
+<div class = "container-fluid my-4">
+  <div class = "row">
+    <div class="col-sm-12">
+      <h2>Ecommerce Tshirts</h2>
+      <!-- Slider 1 -->
+      {% for i in topwears%}
+            <div style = "display:inline-block;" class = " mx-5">
+                <a href = "/product_detail/{{i.id}}" class = "btn"><img src = "{{i.product_image.url}}" class = "img-fluid">
+                <p class = "fw-bold">{{i.title}}</p>
+                <P class = "fw-bold">Deal of the Day:&#x20B9;{{i.discounted_price}}0</P>
+                </a>
+            </div>
+            {% endfor%}
+      </div>
+    </div>
+  </div>
+<!-- End 1st Product Slider -->
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app1/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app1/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app1/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app1/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class = "container-fluid my-4">
+  <div class = "row">
+    <div class="col-sm-12">
+      <h2>Ecommerce Mobiles</h2>
+      {% for i in bottomwears %}
+      <div style = "display:inline-block;" class = " mx-5">
+          <a href = "/product_detail/{{i.id}}" class = "btn"><img src = "{{i.product_image.url}}" class = "img-fluid">
+          <p class = "fw-bold">{{i.title}}</p>
+          <P class = "fw-bold">Deal of the Day:&#x20B9;{{i.discounted_price}}0</P>
+          </a>
+      </div>
+      {% endfor%}
+      </div>
+    </div>
+  </div>
+
+<div class = "container-fluid my-4">
+  <div class = "row">
+    <div class="col-sm-12 ">
+      <h2>Ecommerce Mobiles</h2>
+      <!-- Slider 1 -->
+      {% for i in mobiles %}
+      <div style = "display:inline-block;" class = " mx-5">
+          <a href = "/product_detail/{{i.id}}" class = "btn"><img src = "{{i.product_image.url}}" class = "img-fluid">
+          <p class = "fw-bold">{{i.title}}</p>
+          <P class = "fw-bold">Deal of the Day:&#x20B9;{{i.discounted_price}}0</P>
+          </a>
+      </div>
+      {% endfor%}}
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
